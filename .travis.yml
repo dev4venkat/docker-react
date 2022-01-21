@@ -1,0 +1,11 @@
+language: generic
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t dev4venkat/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true dev4venkat/docker-react npm run test
+
